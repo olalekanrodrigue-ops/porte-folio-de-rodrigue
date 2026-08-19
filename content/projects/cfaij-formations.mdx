@@ -1,0 +1,48 @@
+---
+title: "CFAIJ Services Plus"
+slug: "cfaij-formations"
+section: "Projets entrepreneuriaux & produits numériques"
+domains: ["Education", "Digital", "Business"]
+description: "Centre de formation professionnelle & plateforme numérique — projet entrepreneurial autour de la formation professionnelle à Djougou, accompagné d'un système d'information numérique."
+stack: ["React", "Vite", "Tailwind CSS", "shadcn/ui", "Framer Motion", "Cloudflare R2", "Resend"]
+status: "Livré"
+featured: true
+---
+
+## Contexte
+
+CFAIJ Services Plus est un centre de formation professionnelle multi-filières basé à Djougou (Bénin). Le projet couvre deux volets : la structuration financière pour des investisseurs, et la conception d'un système d'information complet pour piloter l'ensemble de l'activité.
+
+## Volet 1 — Business plan investisseurs
+
+- Capital social cible : **10 000 000 FCFA** (100 actions de 100 000 FCFA)
+- Répartition envisagée : 51 % fondateur / 49 % investisseurs (ticket minimum 500 000 FCFA)
+- Politique de résultat : 40 % en réserve, 60 % en dividendes
+- **12 filières de formation** (Trading, Développement Web, Génie Informatique, Cosmétiques/Esthétique, Stylisme/Modélisme, etc.), de 200 000 à 350 000 FCFA
+- Objectif de 50 apprenants pour la première promotion
+
+## Volet 2 — Système d'information
+
+Conception d'une architecture multi-espaces, chaque espace déployé indépendamment (repo GitHub dédié, sous-domaine propre) et communiquant via une API centrale unique :
+
+- **Site public** (vitrine, galerie, actualités)
+- **Back-office administratif** (Directeur, Secrétaire, Responsable Marketing)
+- **Espace terrain** (agents de prospection, pointage, contrats)
+- **Espace investisseurs**
+- **Espace étudiants**
+
+### Fonctionnalités notables
+
+- Paiements par tranches paramétrables (3 à 6 tranches), avec API de paiement déjà opérationnelle
+- Authentification par OTP email (API Resend) pour tous les rôles
+- Upload de documents (contrats, galerie) via Cloudflare R2
+- Tableau de bord stratégique : taux de conversion par agent, rapports quotidiens/mensuels
+- Gestion fine des rôles et permissions (Directeur, Secrétaire, Comptable, Responsable Marketing, Agents)
+
+## Stack technique (site public)
+
+React + Vite + Tailwind CSS + shadcn/ui + Framer Motion.
+
+## Rôle
+
+Rédaction du business plan, conception de l'architecture système complète, définition des rôles/permissions, et développement en tant que développeur principal du projet.
