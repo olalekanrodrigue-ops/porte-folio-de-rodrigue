@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function ProjectCaseStudy({ project }: { project: Project }) {
   const headerRef = useRef<HTMLDivElement>(null)
-  const metaRef = useRef<HTMLDivElement>(null)
+  const metaRef = useRef<HTMLDListElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
