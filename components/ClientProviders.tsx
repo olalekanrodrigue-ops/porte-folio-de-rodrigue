@@ -1,9 +1,18 @@
 'use client'
 
-import { SmoothScrollProvider } from './SmoothScrollProvider'
-import { CustomCursor } from './CustomCursor'
+import dynamic from 'next/dynamic'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
+
+const SmoothScrollProvider = dynamic(
+  () => import('./SmoothScrollProvider').then((m) => m.SmoothScrollProvider),
+  { ssr: false }
+)
+
+const CustomCursor = dynamic(
+  () => import('./CustomCursor').then((m) => m.CustomCursor),
+  { ssr: false }
+)
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
