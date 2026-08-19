@@ -24,13 +24,13 @@ export function CustomCursor() {
     function onMove(e: MouseEvent) {
       mx = e.clientX
       my = e.clientY
-      dot.style.transform = `translate(${mx - 4}px, ${my - 4}px)`
+      if (dot) dot.style.transform = `translate(${mx - 4}px, ${my - 4}px)`
     }
 
     function animate() {
       cx += (mx - cx) * 0.12
       cy += (my - cy) * 0.12
-      cursor.style.transform = `translate(${cx - 16}px, ${cy - 16}px)`
+      if (cursor) cursor.style.transform = `translate(${cx - 16}px, ${cy - 16}px)`
       requestAnimationFrame(animate)
     }
 
