@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { ArrowLeft, CalendarDays, MessageSquareQuote } from 'lucide-react'
 import Link from 'next/link'
 import { getPublicReview } from '@/lib/reviews'
@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const review = await getPublicReview(slug)
-  if (!review) return { title: 'Avis client introuvable' }
+  if (!review) return { title: 'Avis client introuvable', robots: { index: false, follow: false } }
 
   return {
     title: `Avis de ${review.name}`,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ReviewPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const review = await getPublicReview(slug)
-  if (!review) redirect('/')
+  if (!review) notFound()
 
   const publishedDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(new Date(review.created_at))
 
@@ -49,7 +49,6 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
         {review.project_photo_urls?.length > 0 && <section className="mt-10"><h2 className="text-2xl font-bold tracking-tight">Réalisations du projet</h2><div className="mt-5 grid gap-5 sm:grid-cols-2">{review.project_photo_urls.slice(0, 2).map((url, index) => <img key={url} src={url} alt={`Réalisation ${index + 1} du projet ${review.project}`} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-sm" />)}</div></section>}
 
-        <div className="mt-12 rounded-2xl bg-neutral-900 p-7 text-center text-white sm:p-9"><p className="text-neutral-300">Vous avez un projet à raconter ?</p><Link href="/ola" className="mt-4 inline-flex rounded-full bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition hover:bg-blue-500 hover:text-white">Partager votre avis</Link></div>
       </div>
     </article>
   )

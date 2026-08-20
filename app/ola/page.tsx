@@ -5,7 +5,7 @@ import { ReviewForm } from '@/components/ReviewForm'
 export const metadata: Metadata = {
   title: 'Partager votre avis',
   description: 'Partagez votre expérience d’un projet réalisé par Rodrigue ASSOGBA et ajoutez vos photos de réalisation.',
-  alternates: { canonical: '/ola' },
+  robots: { index: false, follow: false },
 }
 
 export default function OlaReviewPage() {
