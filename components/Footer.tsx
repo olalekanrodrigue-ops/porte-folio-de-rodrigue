@@ -38,6 +38,7 @@ export function Footer() {
                 { href: '/projects', label: 'Projets' },
                 { href: '/skills', label: 'Compétences' },
                 { href: '/contact', label: 'Contact' },
+                { href: '/ola', label: 'Partager un avis' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-sm text-neutral-400 transition-colors hover:text-white">
@@ -83,7 +84,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:rodrigue@assogba.dev" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                <a href="mailto:rodrigue@assogba.tech" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
                   <Mail size={14} /> Email
                 </a>
               </li>

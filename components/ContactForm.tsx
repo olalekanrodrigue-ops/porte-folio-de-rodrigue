@@ -75,7 +75,7 @@ export function ContactForm() {
       <div className="space-y-4">
         <h3 className="mb-6 text-lg font-semibold">Autres moyens de contact</h3>
         {[
-          { icon: Mail, label: 'Email', value: 'rodrigueassogba963@gmail.com', href: 'mailto:rodrigueassogba963@gmail.com' },
+          { icon: Mail, label: 'Email', value: 'rodrigue@assogba.tech', href: 'mailto:rodrigue@assogba.tech' },
           { icon: Linkedin, label: 'LinkedIn', value: '/in/olalékan-rodrigue-assogba-741945281', href: 'https://www.linkedin.com/in/olalékan-rodrigue-assogba-741945281?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
           { icon: Github, label: 'GitHub', value: '@olalekanrodrigue-ops', href: 'https://github.com/olalekanrodrigue-ops' },
           { icon: MessageCircle, label: 'WhatsApp', value: '+229 01 45 89 50 13', href: 'https://wa.me/2290145895013' },
