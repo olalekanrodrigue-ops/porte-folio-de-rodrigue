@@ -31,7 +31,6 @@ export function ReviewsSection({ reviews }: { reviews: Review[] }) {
             <h2 id="reviews-title" className="text-2xl font-bold tracking-tight sm:text-3xl">Des expériences qui parlent du travail.</h2>
             <p className="mt-3 text-neutral-500">Retours de clients et partenaires sur les projets réalisés.</p>
           </div>
-          <Link href="/ola" className="inline-flex items-center gap-2 text-sm font-medium text-neutral-700 transition hover:text-blue-600">Partager mon avis <ArrowUpRight size={15} /></Link>
         </div>
 
         {reviews.length > 0 ? (
@@ -54,7 +53,7 @@ export function ReviewsSection({ reviews }: { reviews: Review[] }) {
             ))}
           </div>
         ) : (
-          <div className="rounded-3xl border border-dashed border-neutral-300 bg-white p-8 text-center sm:p-12"><MessageSquareQuote className="mx-auto text-blue-300" size={34} /><h3 className="mt-4 text-xl font-semibold text-neutral-900">Les premiers avis apparaîtront ici.</h3><p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-neutral-500">Vous avez travaillé avec Rodrigue ? Partagez votre expérience et les photos de votre réalisation.</p><Link href="/ola" className="mt-6 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600">Ajouter un avis <ArrowUpRight size={15} /></Link></div>
+          <div className="rounded-3xl border border-dashed border-neutral-300 bg-white p-8 text-center sm:p-12"><MessageSquareQuote className="mx-auto text-blue-300" size={34} /><h3 className="mt-4 text-xl font-semibold text-neutral-900">Les premiers avis apparaîtront ici.</h3></div>
         )}
       </div>
     </section>

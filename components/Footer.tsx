@@ -38,7 +38,6 @@ export function Footer() {
                 { href: '/projects', label: 'Projets' },
                 { href: '/skills', label: 'Compétences' },
                 { href: '/contact', label: 'Contact' },
-                { href: '/ola', label: 'Partager un avis' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="text-sm text-neutral-400 transition-colors hover:text-white">
