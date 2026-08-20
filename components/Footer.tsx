@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUpRight, MessageCircle, Facebook, Instagram, Music2 } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -58,8 +58,28 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/rodrigue-assogba" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/olalékan-rodrigue-assogba-741945281?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
                   <Linkedin size={14} /> LinkedIn <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/2290145895013" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <MessageCircle size={14} /> WhatsApp <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/wouraolao" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Facebook size={14} /> Facebook <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@ola.le.financier" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Music2 size={14} /> TikTok <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/olaola.234" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Instagram size={14} /> Instagram <ArrowUpRight size={12} />
                 </a>
               </li>
               <li>
