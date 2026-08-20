@@ -4,9 +4,17 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export function PwaSplash() {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+      || (window.navigator as Navigator & { standalone?: boolean }).standalone === true
+
+    if (!isStandalone) {
+      setVisible(false)
+      return
+    }
+
     const storageKey = 'assogba-pwa-splash-seen'
     const alreadySeen = window.sessionStorage.getItem(storageKey)
 
@@ -15,6 +23,7 @@ export function PwaSplash() {
       return
     }
 
+    setVisible(true)
     window.sessionStorage.setItem(storageKey, 'true')
     const timeout = window.setTimeout(() => setVisible(false), 1500)
     return () => window.clearTimeout(timeout)
