@@ -171,7 +171,7 @@ export default function AboutPage() {
               Je porte African Future Group (AFG), une vision entrepreneuriale à long terme autour de la Finance, de la Tech, du Digital, de l&apos;Éducation, du Commerce et de l&apos;IA.
             </p>
             <p className="leading-relaxed">
-              Je suis également à l&apos;origine de Ola Digital Store, orienté vers les produits numériques et l&apos;éducation, ainsi que de Nass Finance, un projet FinTech indépendant.
+              Je suis également à l&apos;origine de Ola Digital Store, orienté vers les produits numériques et l&apos;éducation, ainsi que de Ola Finance, un projet FinTech indépendant.
             </p>
             <p className="leading-relaxed">
               À travers @ola.le.financier, je partage également des contenus d&apos;éducation financière autour de sujets liés à l&apos;investissement, à l&apos;épargne et à la gestion financière.
