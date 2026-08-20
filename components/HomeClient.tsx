@@ -13,6 +13,7 @@ import type { Project } from '@/types/project'
 import { ProjectCard } from '@/components/ProjectCard'
 import { DigitalProducts } from '@/components/DigitalProducts'
 import { ReviewsSection } from '@/components/ReviewsSection'
+import { ManifestoQuote } from '@/components/ManifestoQuote'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -157,6 +158,8 @@ export function HomeClient({ featured, reviews }: { featured: Project[]; reviews
           </Link>
         </div>
       </section>
+
+      <ManifestoQuote />
     </div>
   )
 }
