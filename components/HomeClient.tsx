@@ -11,6 +11,7 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { CountUp } from '@/components/animations/CountUp'
 import type { Project } from '@/types/project'
 import { ProjectCard } from '@/components/ProjectCard'
+import { DigitalProducts } from '@/components/DigitalProducts'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -140,6 +141,8 @@ export function HomeClient({ featured }: { featured: Project[] }) {
           </div>
         </section>
       )}
+
+      <DigitalProducts />
 
       <section ref={ctaRef} className="border-t border-neutral-200 bg-neutral-900 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-6 text-center">
