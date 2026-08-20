@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://rodrigue-assogba.dev/sitemap.xml',
+    sitemap: 'https://assogba.tech/sitemap.xml',
   }
 }

@@ -12,6 +12,7 @@ import { CountUp } from '@/components/animations/CountUp'
 import type { Project } from '@/types/project'
 import { ProjectCard } from '@/components/ProjectCard'
 import { DigitalProducts } from '@/components/DigitalProducts'
+import { ReviewsSection } from '@/components/ReviewsSection'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -46,7 +47,7 @@ const STATS = [
   { value: 1, suffix: '', label: 'Startup lancée' },
 ]
 
-export function HomeClient({ featured }: { featured: Project[] }) {
+export function HomeClient({ featured, reviews }: { featured: Project[]; reviews: import('@/types/review').Review[] }) {
   const expertiseRef = useRef<HTMLElement>(null)
   const statsRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
@@ -123,6 +124,8 @@ export function HomeClient({ featured }: { featured: Project[] }) {
           </div>
         </div>
       </section>
+
+      <ReviewsSection reviews={reviews} />
 
       {featured.length > 0 && (
         <section ref={projectsRef} className="border-t border-neutral-200 py-20 sm:py-28">
