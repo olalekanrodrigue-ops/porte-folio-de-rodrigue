@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, Suspense } from 'react'
+import { Component, useEffect, useRef, Suspense, type ErrorInfo, type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
@@ -11,6 +11,34 @@ const HeroScene = dynamic(
   () => import('./three/HeroScene').then((m) => m.HeroScene),
   { ssr: false }
 )
+
+class SceneErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.warn('La scène 3D est désactivée dans cet environnement.', error, info)
+  }
+
+  render() {
+    return this.state.hasError ? null : this.props.children
+  }
+}
+
+function HeroVisualFallback() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute right-[4%] top-[18%] hidden h-[18rem] w-[18rem] md:block md:h-[22rem] md:w-[22rem] lg:right-[8%] lg:top-[14%] lg:h-[24rem] lg:w-[24rem]">
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(96,165,250,0.42),rgba(37,99,235,0.12)_42%,transparent_72%)] blur-sm" />
+      <div className="absolute inset-[12%] rounded-full border border-blue-400/25 bg-gradient-to-br from-blue-400/20 via-blue-600/10 to-transparent shadow-[0_0_100px_rgba(37,99,235,0.18)]" />
+      <div className="absolute inset-[24%] rounded-full border-2 border-dashed border-blue-400/25 animate-[spin_18s_linear_infinite]" />
+      <div className="absolute left-[18%] top-[24%] h-2 w-2 rounded-full bg-blue-400/70 shadow-[0_0_20px_rgba(96,165,250,0.9)]" />
+      <div className="absolute bottom-[24%] right-[20%] h-3 w-3 rounded-full bg-cyan-300/60 shadow-[0_0_24px_rgba(103,232,249,0.85)]" />
+    </div>
+  )
+}
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -23,6 +51,9 @@ export function Hero() {
   const sceneRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
   const photoRef = useRef<HTMLDivElement>(null)
+  const photoFrameRef = useRef<HTMLDivElement>(null)
+  const photoBurstRef = useRef<HTMLDivElement>(null)
+  const photoSweepRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -41,7 +72,37 @@ export function Hero() {
       tl.fromTo(roleRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.4')
       tl.fromTo(descRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.5')
       tl.fromTo(ctaRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.3')
-      tl.fromTo(photoRef.current, { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=1.5')
+      tl.fromTo(
+        photoRef.current,
+        { x: 150, y: -28, scale: 0.45, opacity: 0, rotation: -8, filter: 'blur(14px)' },
+        { x: 0, y: 0, scale: 1, opacity: 1, rotation: 0, filter: 'blur(0px)', duration: 1.05, ease: 'back.out(1.7)' },
+        '-=1.5'
+      )
+      tl.fromTo(
+        photoFrameRef.current,
+        { scale: 0.82, boxShadow: '0 0 0 rgba(37, 99, 235, 0)' },
+        { scale: 1.08, boxShadow: '0 0 75px rgba(37, 99, 235, 0.38)', duration: 0.45, ease: 'power4.out' },
+        '-=0.85'
+      )
+      tl.to(
+        photoFrameRef.current,
+        { scale: 1, boxShadow: '0 0 26px rgba(37, 99, 235, 0.16)', duration: 0.65, ease: 'elastic.out(1, 0.55)' },
+        '-=0.05'
+      )
+      tl.fromTo(
+        photoBurstRef.current,
+        { scale: 0.5, opacity: 0, rotation: -35 },
+        { scale: 1.12, opacity: 0.75, rotation: 0, duration: 0.55, ease: 'power4.out' },
+        '-=0.85'
+      )
+      tl.to(photoBurstRef.current, { scale: 1.3, opacity: 0, duration: 0.6, ease: 'power2.in' }, '-=0.25')
+      tl.fromTo(
+        photoSweepRef.current,
+        { xPercent: -140, opacity: 0 },
+        { xPercent: 130, opacity: 0.75, duration: 0.8, ease: 'power2.inOut' },
+        '-=0.55'
+      )
+      tl.to(photoSweepRef.current, { opacity: 0, duration: 0.2, ease: 'power1.out' }, '-=0.1')
       tl.fromTo(sceneRef.current, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, '-=1.2')
     }, sectionRef)
 
@@ -54,10 +115,13 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden">
       {/* Background 3D */}
-      <div ref={sceneRef} className="pointer-events-none absolute inset-0 z-0 opacity-0 lg:right-[-5%] lg:top-[5%] lg:h-[90%] lg:w-[55%]">
-        <Suspense fallback={null}>
-          <HeroScene className="h-full w-full" />
-        </Suspense>
+      <div ref={sceneRef} className="pointer-events-none absolute inset-0 z-0 opacity-100 lg:right-[-5%] lg:top-[5%] lg:h-[90%] lg:w-[55%]">
+        <HeroVisualFallback />
+        <SceneErrorBoundary>
+          <Suspense fallback={null}>
+            <HeroScene className="h-full w-full" />
+          </Suspense>
+        </SceneErrorBoundary>
       </div>
 
       {/* Gradient overlay */}
@@ -102,7 +166,7 @@ export function Hero() {
               Explorer mes projets
               <ArrowRight size={16} strokeWidth={1.75} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <a href="/cv" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full border border-neutral-300 px-7 py-3.5 text-sm font-medium text-neutral-700 transition-all duration-300 hover:border-neutral-900 hover:text-neutral-900 hover:shadow-lg">
+            <a href="/cv/index.html" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full border border-neutral-300 px-7 py-3.5 text-sm font-medium text-neutral-700 transition-all duration-300 hover:border-neutral-900 hover:text-neutral-900 hover:shadow-lg">
               Voir mon CV
               <ExternalLink size={16} strokeWidth={1.75} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
@@ -111,9 +175,11 @@ export function Hero() {
 
         {/* Photo */}
         <div ref={photoRef} className="relative mx-auto opacity-0 lg:mx-0">
-          <div className="relative h-56 w-56 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
-            <Image src="/images/profile/photo.jpg" alt="Rodrigue Olalékan ASSOGBA" fill className="object-cover" priority sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px" />
+          <div ref={photoFrameRef} className="relative aspect-[4/5] w-56 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 will-change-transform sm:w-80 lg:w-[25rem]">
+            <Image src="/images/profile/photo.jpg" alt="Rodrigue Olalékan ASSOGBA" fill className="object-contain" priority sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px" />
+            <div ref={photoSweepRef} aria-hidden="true" className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/90 to-transparent opacity-0 mix-blend-overlay" />
           </div>
+          <div ref={photoBurstRef} aria-hidden="true" className="pointer-events-none absolute -inset-5 rounded-[2rem] border-2 border-blue-400/40 opacity-0" />
           <div className="absolute -bottom-3 -right-3 h-24 w-24 rounded-2xl bg-blue-600/10" />
           <div className="absolute -left-3 -top-3 h-16 w-16 rounded-xl bg-blue-600/5" />
         </div>

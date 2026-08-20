@@ -103,12 +103,12 @@ export default function AboutPage() {
       <section className="mb-20 grid gap-12 lg:grid-cols-2 lg:items-center">
         {/* Photo */}
         <div ref={photoRef} className="flex justify-center opacity-0">
-          <div className="relative h-64 w-64 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 sm:h-80 sm:w-80 lg:h-96 lg:w-96">
+          <div className="relative aspect-[4/5] w-64 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 sm:w-80 lg:w-96">
             <Image
               src="/images/profile/photo.jpg"
               alt="Rodrigue Olalékan ASSOGBA"
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
             />
           </div>

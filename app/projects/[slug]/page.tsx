@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { getAllProjects, getProjectSlugs, getProjectMeta, getProjectContent } from '@/lib/projects'
 import { ProjectCaseStudy } from '@/components/ProjectCaseStudy'
 import { MdxContent } from '@/components/MdxContent'
+import { ProjectEvidence } from '@/components/ProjectEvidence'
 
 type PageProps = { params: Promise<{ slug: string }> }
 
@@ -33,6 +34,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <div>
       <ProjectCaseStudy project={project} />
+      <ProjectEvidence project={project} />
 
       <div className="mt-8 border-t border-neutral-200 pt-8">
         <MdxContent source={mdxContent} />

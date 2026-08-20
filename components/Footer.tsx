@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react'
 
@@ -8,10 +9,21 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="text-sm font-semibold tracking-tight">Rodrigue Olalékan ASSOGBA</p>
-            <p className="mt-3 text-sm text-neutral-400">
-              Finance × Data × Digital
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/logo/footer-logo.png"
+                  alt="Logo de Rodrigue Olalékan ASSOGBA"
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-semibold tracking-tight">Rodrigue Olalékan ASSOGBA</p>
+                <p className="mt-1 text-sm text-neutral-400">Finance × Data × Digital</p>
+              </div>
+            </div>
             <p className="mt-4 text-xs leading-relaxed text-neutral-500">
               Je conçois et développe des solutions numériques à l&apos;intersection de la finance, de la donnée et des technologies.
             </p>

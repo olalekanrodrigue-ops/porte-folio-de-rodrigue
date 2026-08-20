@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { usePathname } from 'next/navigation'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
@@ -15,11 +16,16 @@ const CustomCursor = dynamic(
 )
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  const isWideRoute = pathname === '/' || pathname === '/projects' || pathname.startsWith('/projects/')
+
   return (
     <SmoothScrollProvider>
       <CustomCursor />
       <Navbar />
-      <main className="mx-auto max-w-5xl px-4 sm:px-6 py-10 sm:py-12">{children}</main>
+      <main className={`mx-auto px-4 py-10 sm:px-6 sm:py-12 ${isWideRoute ? 'max-w-7xl' : 'max-w-5xl'}`}>
+        {children}
+      </main>
       <Footer />
     </SmoothScrollProvider>
   )

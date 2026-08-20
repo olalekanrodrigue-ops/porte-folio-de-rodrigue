@@ -69,6 +69,14 @@
     color: var(--gray-500);
   }
   .contact-row span { white-space: nowrap; }
+  @media (max-width: 600px) {
+    .page { padding: 24px 18px; }
+    .header h1 { font-size: 23px; }
+    .contact-row { display: grid; gap: 6px; font-size: 12px; }
+    .contact-row span { white-space: normal; overflow-wrap: anywhere; }
+    .exp-header { display: block; }
+    .exp-date { margin-top: 3px; }
+  }
 
   /* Sections */
   .section { margin-bottom: 24px; }
@@ -205,10 +213,10 @@
   <!-- Header -->
   <header class="header">
     <h1>Rodrigue Olalékan ASSOGBA</h1>
-    <div class="tagline">Conception e-learning · Développement web full-stack · Contenus interactifs · Banque &amp; Finance</div>
+    <div class="tagline">Étudiant en Banque, Finance &amp; Assurance · Candidat au stage académique</div>
     <div class="contact-row">
-      <span>📍 Bénin</span>
-      <span>📞 01 61 64 34 04</span>
+      <span>📍 Maison ASSOGBA, BP05, Adja-Ouèrè, Bénin</span>
+      <span>📞 +229 01 61 64 34 04 / +229 01 45 89 50 13</span>
       <span>✉️ rodrigueassogba963@gmail.com</span>
       <span>🌐 olalekanrodrigueassogba.netlify.app</span>
     </div>
@@ -225,7 +233,7 @@
         Je conçois et développe moi-même des applications web complètes — frontend, backend, bases de données, API et déploiement — en m'appuyant sur l'IA comme outil d'accélération, jamais comme substitut à la compréhension technique.
       </p>
       <p style="margin-top: 8px;">
-        Je souhaite mettre ce profil au service de la conception de <strong>modules e-learning interactifs</strong>, en mobilisant mes compétences techniques, ma pratique des contenus pédagogiques numériques et mon intérêt pour l'ingénierie pédagogique.
+        Je souhaite mettre ce profil au service des <strong>opérations bancaires</strong>, de l'analyse de crédit, de la relation client et de la conception de modules e-learning interactifs, en mobilisant mes compétences techniques et mon intérêt pour l'ingénierie pédagogique.
       </p>
     </div>
   </section>
@@ -248,6 +256,23 @@
           <li>Traitement et organisation de données financières</li>
           <li>Classement et analyse de documents comptables</li>
           <li>Familiarisation avec les procédures comptables et financières d'une institution de microfinance</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Animateur en Éducation Financière</div>
+          <div class="exp-org">Ola Digital Store</div>
+        </div>
+        <div class="exp-date">2023 – Présent</div>
+      </div>
+      <div class="exp-desc">
+        <ul>
+          <li>Vulgarisation de concepts financiers : épargne, budget et investissement</li>
+          <li>Rédaction et diffusion de contenus pédagogiques sur la finance personnelle</li>
+          <li>Publication de l'ebook « 50 Idées de Business Rentables en Afrique »</li>
         </ul>
       </div>
     </div>
@@ -328,6 +353,26 @@
         </ul>
       </div>
     </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Baccalauréat Série D — Sciences</div>
+          <div class="exp-org">CEG Adja-Ouèrè</div>
+        </div>
+        <div class="exp-date">Obtenu en 2023</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">BEPC</div>
+          <div class="exp-org">CEG Adja-Ouèrè</div>
+        </div>
+        <div class="exp-date">Obtenu en 2020</div>
+      </div>
+    </div>
   </section>
 
   <!-- Compétences -->
@@ -372,7 +417,28 @@
           <li>Next.js, Tailwind CSS</li>
           <li>Word, Excel, Google Workspace</li>
           <li>Canva, CapCut</li>
-          <li>Sage 100C, Perfecto, Hypersoft</li>
+          <li>ELYTH® ATHENA™, Sage 100C, Perfecto, Hypersoft</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Comptabilité &amp; Microfinance</h4>
+        <ul>
+          <li>Imputation des écritures et saisie comptable</li>
+          <li>Bilan d'ouverture, clôture et états financiers</li>
+          <li>Balance, grand livre et déclarations fiscales</li>
+          <li>Signalétique et ouverture de comptes clients</li>
+          <li>Capacité de remboursement et suivi du crédit</li>
+          <li>Gestion du risque de portefeuille</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Management SI &amp; Projets</h4>
+        <ul>
+          <li>Gestion des Systèmes d'Information</li>
+          <li>Gestion et suivi de projets</li>
+          <li>Diagramme de Gantt et graphe PERT</li>
+          <li>Évaluation de viabilité de projet</li>
+          <li>MySQL et traitement de l'information</li>
         </ul>
       </div>
     </div>
@@ -381,9 +447,28 @@
   <!-- Langues -->
   <section class="section">
     <div class="section-title">Langues</div>
-    <div style="display: flex; gap: 24px; font-size: 13px; color: var(--gray-700);">
+    <div style="display: flex; flex-wrap: wrap; gap: 10px 24px; font-size: 13px; color: var(--gray-700);">
       <span><strong>Français</strong> : courant</span>
+      <span><strong>Yoruba / Nagot</strong> : langue maternelle</span>
+      <span><strong>Fon</strong> : notions de base</span>
       <span><strong>Anglais</strong> : intermédiaire</span>
+    </div>
+  </section>
+
+  <!-- Qualités -->
+  <section class="section">
+    <div class="section-title">Qualités professionnelles</div>
+    <div class="skills-grid">
+      <div class="skill-card"><h4>Posture professionnelle</h4><ul><li>Rigueur dans le traitement des dossiers</li><li>Intégrité et discrétion professionnelle</li><li>Autonomie et sens des responsabilités</li></ul></div>
+      <div class="skill-card"><h4>Relation &amp; analyse</h4><ul><li>Sens de l'écoute et relation client</li><li>Esprit analytique</li><li>Résolution de problèmes</li></ul></div>
+    </div>
+  </section>
+
+  <!-- Centres d'intérêt -->
+  <section class="section">
+    <div class="section-title">Centres d'intérêt</div>
+    <div class="profile">
+      <p>Inclusion financière en Afrique · Économie locale et entrepreneuriat · Lecture — finance et développement personnel</p>
     </div>
   </section>
 

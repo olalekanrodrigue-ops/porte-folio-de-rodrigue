@@ -31,6 +31,10 @@ export function getProjectMeta(slug: string): Project {
     demo: frontmatter.demo,
     github: frontmatter.github,
     targetMarket: frontmatter.targetMarket,
+    proofImage: frontmatter.proofImage,
+    proofAlt: frontmatter.proofAlt,
+    proofImages: frontmatter.proofImages,
+    proofAlts: frontmatter.proofAlts,
   }
 }
 
