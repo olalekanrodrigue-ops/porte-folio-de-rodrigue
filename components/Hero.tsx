@@ -54,6 +54,8 @@ export function Hero() {
   const photoFrameRef = useRef<HTMLDivElement>(null)
   const photoBurstRef = useRef<HTMLDivElement>(null)
   const photoSweepRef = useRef<HTMLDivElement>(null)
+  const sunRef = useRef<HTMLDivElement>(null)
+  const sunRayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,6 +64,19 @@ export function Hero() {
       tl.fromTo(lineRef.current, { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: 'power4.inOut' })
 
       tl.fromTo(tagRef.current, { y: 30, opacity: 0, filter: 'blur(10px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9 }, '-=0.5')
+
+      tl.fromTo(
+        sunRef.current,
+        { yPercent: 35, scale: 0.72, opacity: 0 },
+        { yPercent: 0, scale: 1, opacity: 1, duration: 1.15, ease: 'back.out(1.4)' },
+        '-=0.8'
+      )
+      tl.fromTo(
+        sunRayRef.current,
+        { scale: 0.78, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.35, ease: 'power2.out' },
+        '-=1'
+      )
 
       if (nameRef.current) {
         const chars = nameRef.current.querySelectorAll('.char')
@@ -127,6 +142,14 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10 lg:from-white/95 lg:via-white/40 lg:to-transparent" />
       </div>
 
+      {/* Emergent sun — below the 3D and content, with a warm directional glow. */}
+      <div ref={sunRef} aria-hidden="true" className="pointer-events-none absolute -right-16 top-8 z-[2] h-48 w-48 sm:-right-8 sm:top-12 sm:h-64 sm:w-64 lg:right-[8%] lg:top-[8%] lg:h-72 lg:w-72">
+        <div ref={sunRayRef} className="absolute -inset-36 rounded-full bg-[radial-gradient(circle,rgba(251,191,36,0.2)_0%,rgba(253,224,71,0.09)_24%,rgba(255,255,255,0)_70%)] blur-3xl mix-blend-screen" />
+        <div className="absolute -left-[78%] top-[24%] h-[52%] w-[175%] -rotate-[18deg] rounded-full bg-[linear-gradient(105deg,rgba(251,191,36,0.1),rgba(253,224,71,0.04)_48%,rgba(255,255,255,0)_78%)] blur-3xl" />
+        <div className="absolute inset-[23%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff9c4_0%,#fbbf24_34%,#f59e0b_68%,#ea580c_100%)] shadow-[0_0_40px_rgba(251,191,36,0.3)]" />
+        <div className="absolute inset-[12%] rounded-full border border-amber-200/35 opacity-55" />
+      </div>
+
       {/* Background 3D — kept above the photo and overlay. */}
       <div ref={sceneRef} className="pointer-events-none absolute inset-0 z-[5] opacity-100 lg:left-auto lg:right-[-5%] lg:top-[5%] lg:bottom-auto lg:h-[90%] lg:w-[55%]">
         <HeroVisualFallback />
@@ -150,7 +173,7 @@ export function Hero() {
           </p>
 
           <div ref={nameRef} className="mb-4 overflow-hidden">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl">
+            <h1 className="text-4xl font-extrabold tracking-tight drop-shadow-[0_0_18px_rgba(251,191,36,0.12)] sm:text-5xl lg:text-7xl">
               {firstName.split('').map((char, i) => (
                 <span key={i} className="char inline-block opacity-0">
                   {char === ' ' ? '\u00A0' : char}
@@ -160,7 +183,7 @@ export function Hero() {
           </div>
 
           <div ref={titleRef} className="mb-6 overflow-hidden opacity-0">
-            <h2 className="text-3xl font-extrabold tracking-tight text-neutral-700 sm:text-4xl lg:text-6xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-neutral-700 drop-shadow-[0_0_18px_rgba(251,191,36,0.12)] sm:text-4xl lg:text-6xl">
               <span className="text-blue-600">{lastName}</span>
             </h2>
           </div>
@@ -188,7 +211,8 @@ export function Hero() {
 
         {/* Photo */}
         <div ref={photoRef} className="relative mx-auto opacity-0 lg:mx-0">
-          <div ref={photoFrameRef} className="relative aspect-[4/5] w-56 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 will-change-transform sm:w-80 lg:w-[25rem]">
+          <div className="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-amber-300/14 blur-3xl" />
+        <div ref={photoFrameRef} className="relative aspect-[4/5] w-56 overflow-hidden rounded-3xl bg-neutral-100 shadow-2xl shadow-neutral-900/10 will-change-transform sm:w-80 lg:w-[25rem]">
             <Image src="/images/profile/photo.jpg" alt="Rodrigue Olalékan ASSOGBA" fill className="object-contain" priority sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 320px" />
             <div ref={photoSweepRef} aria-hidden="true" className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/90 to-transparent opacity-0 mix-blend-overlay" />
           </div>
