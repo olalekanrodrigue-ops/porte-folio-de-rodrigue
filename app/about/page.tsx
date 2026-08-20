@@ -94,7 +94,7 @@ export default function AboutPage() {
         />
         <ScrollReveal delay={0.3}>
           <p className="max-w-xl text-lg text-neutral-500">
-            Qui suis-je, d&apos;où je viens, et où je vais.
+            Profil hybride à la croisée de la finance, de la donnée et de la technologie.
           </p>
         </ScrollReveal>
       </div>
@@ -118,45 +118,80 @@ export default function AboutPage() {
         <div ref={bioRef} className="space-y-5">
           <div className="bio-line">
             <h3 className="mb-4 text-2xl font-bold tracking-tight">
-              Rodrigue Olalékan ASSOGBA
+              Rodrigue Olalékan <span className="text-[#0b1f3a]">ASSOGBA</span>
             </h3>
           </div>
           <div className="bio-line">
             <p className="leading-relaxed text-neutral-600">
-              Profil hybride à l&apos;intersection de la <strong className="font-semibold text-neutral-900">finance</strong>,
-              de la <strong className="font-semibold text-neutral-900">donnée</strong> et de la <strong className="font-semibold text-neutral-900">technologie</strong>.
+              Je suis Rodrigue Olalékan Assogba, un profil hybride à la croisée de la finance, de la donnée et de la technologie.
             </p>
           </div>
           <div className="bio-line">
             <p className="leading-relaxed text-neutral-600">
-              Avec une formation en statistiques, économétrie et finance, j&apos;ai développé
-              une vision transversale qui me permet de concevoir des solutions numériques
-              à la fois robustes et adaptées aux réalités métier.
+              Mon parcours en gestion financière m&apos;a appris à analyser les problématiques économiques et financières avec rigueur. Ma formation en statistiques et en économétrie a renforcé ma capacité à exploiter les données, à comprendre les relations entre les variables et à appuyer mes analyses sur des éléments mesurables.
             </p>
           </div>
           <div className="bio-line">
             <p className="leading-relaxed text-neutral-600">
-              Mon objectif : construire des produits et des outils qui rapprochent
-              la finance, la donnée et la technologie des besoins réels des entreprises
-              et des utilisateurs.
+              Cette combinaison nourrit une conviction : les meilleurs outils ne sont pas seulement techniquement performants, ils doivent surtout répondre à des besoins métier concrets.
             </p>
           </div>
           <div className="bio-line">
             <p className="leading-relaxed text-neutral-600">
-              Je conçois et développe moi-même des applications web complètes — frontend, backend,
-              bases de données, API et déploiement — en m&apos;appuyant sur l&apos;IA comme outil
-              d&apos;accélération, jamais comme substitut à la compréhension technique.
+              C&apos;est cette vision qui guide mon travail. Avec mon équipe, je conçois et développe des applications web full-stack, du frontend au backend, en passant par les API, les bases de données et le déploiement. Je m&apos;intéresse autant à la technologie qu&apos;à la compréhension du problème que le produit doit résoudre.
+            </p>
+          </div>
+          <div className="bio-line">
+            <p className="leading-relaxed text-neutral-600">
+              J&apos;utilise l&apos;intelligence artificielle comme un outil d&apos;accélération, tout en conservant la maîtrise de la logique, de l&apos;architecture et des choix techniques.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Vision */}
+      {/* Académique & professionnel */}
       <section ref={quoteRef} className="mb-20 rounded-2xl border border-neutral-200 bg-gradient-to-br from-neutral-50 to-white p-8 sm:p-10 opacity-0">
-        <blockquote className="text-lg italic leading-relaxed text-neutral-700 sm:text-xl">
-          &ldquo;Construire des solutions qui rapprochent la finance, la donnée et la
-          technologie des besoins réels des entreprises et des utilisateurs.&rdquo;
-        </blockquote>
+        <h2 className="mb-5 text-2xl font-bold tracking-tight sm:text-3xl">Académique &amp; professionnel</h2>
+        <div className="space-y-5 text-neutral-600">
+          <p className="leading-relaxed">
+            Je suis actuellement en 3ᵉ année de Licence Professionnelle Banque, Finance et Assurance à la FASEG/UAC, avec une expérience au service comptabilité de PADME, agence de Pobè.
+          </p>
+          <p className="leading-relaxed">
+            Mon parcours m&apos;a permis de développer des compétences en gestion financière, comptabilité OHADA, microfinance, assurance, fiscalité, analyse financière et gestion des risques, avec une approche progressivement orientée vers la donnée et les outils numériques.
+          </p>
+        </div>
+      </section>
+
+      {/* Entrepreneuriat & développement */}
+      <section className="mb-20 grid gap-8 lg:grid-cols-2">
+        <div className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+          <h2 className="mb-5 text-2xl font-bold tracking-tight">Entrepreneuriat</h2>
+          <div className="space-y-5 text-neutral-600">
+            <p className="leading-relaxed">
+              Je porte African Future Group (AFG), une vision entrepreneuriale à long terme autour de la Finance, de la Tech, du Digital, de l&apos;Éducation, du Commerce et de l&apos;IA.
+            </p>
+            <p className="leading-relaxed">
+              Je suis également à l&apos;origine de Ola Digital Store, orienté vers les produits numériques et l&apos;éducation, ainsi que de Nass Finance, un projet FinTech indépendant.
+            </p>
+            <p className="leading-relaxed">
+              À travers @ola.le.financier, je partage également des contenus d&apos;éducation financière autour de sujets liés à l&apos;investissement, à l&apos;épargne et à la gestion financière.
+            </p>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
+          <h2 className="mb-5 text-2xl font-bold tracking-tight">Développement &amp; technologie</h2>
+          <div className="space-y-5 text-neutral-600">
+            <p className="leading-relaxed">
+              Je travaille sur des projets full-stack avec notamment React, API, PostgreSQL et MySQL, ainsi que sur des architectures utilisant des services comme Vercel, Render et Cloudflare R2.
+            </p>
+            <p className="leading-relaxed">
+              Je m&apos;intéresse également à l&apos;architecture logicielle, aux bases de données, aux systèmes de paiement, au déploiement, à l&apos;expérience utilisateur et à la conception de produits numériques.
+            </p>
+            <p className="leading-relaxed">
+              Ma démarche : comprendre le besoin, mobiliser la donnée et la technologie, puis construire une solution réellement utile.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Timeline */}

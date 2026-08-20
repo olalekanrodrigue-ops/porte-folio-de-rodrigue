@@ -114,8 +114,21 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden">
-      {/* Background 3D */}
-      <div ref={sceneRef} className="pointer-events-none absolute inset-0 z-0 opacity-100 lg:right-[-5%] lg:top-[5%] lg:h-[90%] lg:w-[55%]">
+      {/* Professional background image: deliberately subdued so the 3D remains dominant. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
+        <Image
+          src="/images/hero/hero-background.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-50 saturate-[0.55] brightness-[0.92] sm:opacity-55 lg:object-right lg:opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/10 lg:from-white/95 lg:via-white/40 lg:to-transparent" />
+      </div>
+
+      {/* Background 3D — kept above the photo and overlay. */}
+      <div ref={sceneRef} className="pointer-events-none absolute inset-0 z-[5] opacity-100 lg:left-auto lg:right-[-5%] lg:top-[5%] lg:bottom-auto lg:h-[90%] lg:w-[55%]">
         <HeroVisualFallback />
         <SceneErrorBoundary>
           <Suspense fallback={null}>
@@ -124,8 +137,8 @@ export function Hero() {
         </SceneErrorBoundary>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white via-white/80 to-transparent lg:from-white lg:via-white/60 lg:to-transparent" />
+      {/* Final text-protection layer, below the 3D scene but above the photo. */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-white/35 via-white/10 to-transparent lg:from-white/20 lg:via-transparent lg:to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto grid max-w-5xl gap-10 px-6 py-24 sm:py-32 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -147,8 +160,8 @@ export function Hero() {
           </div>
 
           <div ref={titleRef} className="mb-6 overflow-hidden opacity-0">
-            <h2 className="text-3xl font-extrabold tracking-tight text-neutral-300 sm:text-4xl lg:text-6xl">
-              {lastName}
+            <h2 className="text-3xl font-extrabold tracking-tight text-neutral-700 sm:text-4xl lg:text-6xl">
+              <span className="text-blue-600">{lastName}</span>
             </h2>
           </div>
 
