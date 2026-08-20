@@ -11,6 +11,7 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal'
 import { CountUp } from '@/components/animations/CountUp'
 import type { Project } from '@/types/project'
 import { ProjectCard } from '@/components/ProjectCard'
+import { DigitalProducts } from '@/components/DigitalProducts'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,7 +93,7 @@ export function HomeClient({ featured }: { featured: Project[] }) {
       <Hero />
 
       <section ref={expertiseRef} className="border-t border-neutral-200 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <TextReveal text="Mon expertise" as="h2" className="mb-4 text-2xl font-bold tracking-tight sm:text-3xl" />
           <ScrollReveal delay={0.2}>
             <p className="mb-12 max-w-xl text-neutral-500">Finance · Data · Digital — trois domaines complémentaires au service de solutions concrètes.</p>
@@ -111,7 +112,7 @@ export function HomeClient({ featured }: { featured: Project[] }) {
       </section>
 
       <section ref={statsRef} className="border-t border-neutral-200 bg-neutral-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 gap-8 text-center sm:grid-cols-4">
             {STATS.map(({ value, suffix, label }) => (
               <div key={label}>
@@ -125,7 +126,7 @@ export function HomeClient({ featured }: { featured: Project[] }) {
 
       {featured.length > 0 && (
         <section ref={projectsRef} className="border-t border-neutral-200 py-20 sm:py-28">
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-7xl px-6">
             <div className="mb-10 flex items-end justify-between">
               <div>
                 <TextReveal text="Projets phares" as="h2" className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl" />
@@ -141,8 +142,10 @@ export function HomeClient({ featured }: { featured: Project[] }) {
         </section>
       )}
 
+      <DigitalProducts />
+
       <section ref={ctaRef} className="border-t border-neutral-200 bg-neutral-900 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl px-6 text-center">
+        <div className="mx-auto max-w-7xl px-6 text-center">
           <TextReveal text="Vous avez un projet ?" as="h2" className="mb-4 text-2xl font-bold tracking-tight text-white sm:text-3xl" />
           <TextReveal text="Construisons quelque chose d'exceptionnel." as="p" delay={0.3} className="mb-10 text-lg text-neutral-400" />
           <Link href="/contact" className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-medium text-neutral-900 transition-all duration-300 hover:shadow-xl hover:shadow-white/10 hover:scale-105">

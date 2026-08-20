@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowUpRight, MessageCircle, Facebook, Instagram, Music2 } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -8,10 +9,21 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="text-sm font-semibold tracking-tight">Rodrigue Olalékan ASSOGBA</p>
-            <p className="mt-3 text-sm text-neutral-400">
-              Finance × Data × Digital
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="relative h-12 w-12 overflow-hidden rounded-xl">
+                <Image
+                  src="/images/logo/footer-logo.png"
+                  alt="Logo de Rodrigue Olalékan ASSOGBA"
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-semibold tracking-tight">Rodrigue Olalékan ASSOGBA</p>
+                <p className="mt-1 text-sm text-neutral-400">Finance × Data × Digital</p>
+              </div>
+            </div>
             <p className="mt-4 text-xs leading-relaxed text-neutral-500">
               Je conçois et développe des solutions numériques à l&apos;intersection de la finance, de la donnée et des technologies.
             </p>
@@ -46,8 +58,28 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/rodrigue-assogba" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/olalékan-rodrigue-assogba-741945281?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
                   <Linkedin size={14} /> LinkedIn <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/2290145895013" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <MessageCircle size={14} /> WhatsApp <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/wouraolao" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Facebook size={14} /> Facebook <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@ola.le.financier" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Music2 size={14} /> TikTok <ArrowUpRight size={12} />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/olaola.234" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors">
+                  <Instagram size={14} /> Instagram <ArrowUpRight size={12} />
                 </a>
               </li>
               <li>

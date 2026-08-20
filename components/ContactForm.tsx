@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { Send, Mail, Linkedin, Github, ExternalLink } from 'lucide-react'
+import { Send, Mail, Linkedin, Github, ExternalLink, MessageCircle } from 'lucide-react'
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -76,9 +76,10 @@ export function ContactForm() {
         <h3 className="mb-6 text-lg font-semibold">Autres moyens de contact</h3>
         {[
           { icon: Mail, label: 'Email', value: 'rodrigueassogba963@gmail.com', href: 'mailto:rodrigueassogba963@gmail.com' },
-          { icon: Linkedin, label: 'LinkedIn', value: '/in/rodrigue-assogba', href: 'https://linkedin.com/in/rodrigue-assogba' },
+          { icon: Linkedin, label: 'LinkedIn', value: '/in/olalékan-rodrigue-assogba-741945281', href: 'https://www.linkedin.com/in/olalékan-rodrigue-assogba-741945281?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
           { icon: Github, label: 'GitHub', value: '@olalekanrodrigue-ops', href: 'https://github.com/olalekanrodrigue-ops' },
-          { icon: ExternalLink, label: 'CV', value: 'Consulter mon CV en ligne', href: '/cv' },
+          { icon: MessageCircle, label: 'WhatsApp', value: '+229 01 45 89 50 13', href: 'https://wa.me/2290145895013' },
+          { icon: ExternalLink, label: 'CV', value: 'Consulter mon CV en ligne', href: '/cv/index.html' },
         ].map(({ icon: Icon, label, value, href }) => (
           <a
             key={label}

@@ -51,11 +51,12 @@ export function Navbar() {
   }, [open])
 
   return (
-    <header
+    <>
+      <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'border-b border-neutral-200/60 bg-white/70 backdrop-blur-xl'
-          : 'bg-transparent'
+          ? 'border-b border-neutral-200/60 bg-white/80 backdrop-blur-xl'
+          : 'border-b border-neutral-200/40 bg-white/60 backdrop-blur-md'
       }`}
     >
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
@@ -94,35 +95,38 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
-      <div
-        ref={menuRef}
-        className={`md:hidden fixed inset-0 top-[61px] z-40 bg-white/95 backdrop-blur-xl transition-all duration-300 ease-out ${
-          open
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-3 pointer-events-none'
-        }`}
-      >
-        <div className="mx-auto max-w-5xl px-6 py-8">
-          <ul className="space-y-2">
-            {NAV_ITEMS.map(({ href, label }, i) => (
-              <li
-                key={href}
-                className="transition-all duration-300"
-                style={{ transitionDelay: open ? `${i * 60}ms` : '0ms' }}
-              >
-                <Link
-                  href={href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-5 py-4 text-lg font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </header>
+
+    {/* Mobile menu is outside the filtered header so fixed positioning covers the full viewport. */}
+    <div
+      ref={menuRef}
+      className={`md:hidden fixed left-0 right-0 top-[61px] bottom-0 z-[60] isolate w-screen overflow-y-auto overscroll-contain bg-white shadow-xl shadow-neutral-900/10 transition-all duration-300 ease-out ${
+        open
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 -translate-y-3 pointer-events-none'
+      }`}
+      style={{ backgroundColor: '#ffffff' }}
+    >
+      <div className="mx-auto min-h-full max-w-5xl bg-white px-6 py-8">
+        <ul className="space-y-2">
+          {NAV_ITEMS.map(({ href, label }, i) => (
+            <li
+              key={href}
+              className="transition-all duration-300"
+              style={{ transitionDelay: open ? `${i * 60}ms` : '0ms' }}
+            >
+              <Link
+                href={href}
+                onClick={() => setOpen(false)}
+                className="block rounded-xl px-5 py-4 text-lg font-medium text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    </>
   )
 }

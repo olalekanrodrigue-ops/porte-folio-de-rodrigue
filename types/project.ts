@@ -16,6 +16,10 @@ export type Project = {
   demo?: string
   github?: string
   targetMarket?: string
+  proofImage?: string
+  proofAlt?: string
+  proofImages?: string[]
+  proofAlts?: string[]
 }
 
 export type ProjectFrontmatter = Omit<Project, 'slug'>

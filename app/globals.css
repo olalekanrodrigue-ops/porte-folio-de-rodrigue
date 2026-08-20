@@ -67,3 +67,8 @@ a, button, [role="button"] {
     scroll-behavior: auto !important;
   }
 }
+
+@keyframes splash-progress {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(200%); }
+}
